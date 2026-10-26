@@ -150,6 +150,8 @@
 .response-bridge h3 { margin: .8rem 0; }
 .response-bridge p { max-width: 610px; }
 .bridge-note { padding: .8rem 1rem; border-left: 4px solid #e58b3b; background: #fff7e9; font-size: .9rem; }
+.question-reason { margin: 1rem 0 .35rem; font-size: .92rem; }
+.verified-link { display: inline-block; margin-bottom: 1rem; color: var(--plum); font-weight: 800; text-decoration: underline; text-decoration-color: #e58b3b; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .bridge-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.3rem; }
 
 /* Sustituye las bandas rectangulares por un semicírculo continuo y recortado. */
