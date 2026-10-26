@@ -47,6 +47,10 @@ Ciclo de la violencia. (s.f.). Shelter for help in emergency. Recuperado por htt
 
 https://drive.google.com/file/d/1U8Ac_zp-A7a1A8jqNVazP-78XJFhUcEn/view?usp=sharing
 
+### Archivo añadido en 2026
+
+La transcripción local del video recuperado está disponible en [transcripcion-video-entrega-2.md](transcripcion-video-entrega-2.md). Es un documento de archivo: conserva el contexto de la presentación y marca sus datos como históricos para su posterior verificación.
+
 
 - Escriban las preguntas/dudas que tienen sobre su proyecto y/o su código para las moderadoras. Cuando las moderadoras les escribirán con retroalimentación en el foro, incluirán sugerencias a estas preguntas. Añadan sus preguntas aquí:
 
