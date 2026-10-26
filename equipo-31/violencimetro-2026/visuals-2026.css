@@ -154,6 +154,32 @@
 .verified-link { display: inline-block; margin-bottom: 1rem; color: var(--plum); font-weight: 800; text-decoration: underline; text-decoration-color: #e58b3b; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .bridge-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.3rem; }
 
+.floating-exit {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 20;
+  display: grid;
+  width: 3.4rem;
+  height: 3.4rem;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--plum);
+  color: #fff;
+  box-shadow: 0 10px 25px #25152f55;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.floating-exit:hover,
+.floating-exit:focus-visible { background: var(--violet); transform: translateY(-3px); outline: 3px solid #f1cf4b; outline-offset: 3px; }
+.floating-exit svg { width: 1.45rem; height: 1.45rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.exit-symbol { display: inline-grid; width: 1.35rem; height: 1.35rem; place-items: center; border-radius: 50%; background: var(--plum); color: #fff; font-weight: 800; }
+
+@media (max-width: 760px) { .floating-exit { right: 1rem; bottom: 1rem; width: 3.15rem; height: 3.15rem; } }
+@media print { .floating-exit { display: none; } }
+
 /* Sustituye las bandas rectangulares por un semicírculo continuo y recortado. */
 .support-meter { max-width: 390px; }
 .meter-arc { width: 360px; max-width: 100%; height: 180px; margin: 0 auto; overflow: hidden; }
