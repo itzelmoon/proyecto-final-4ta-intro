@@ -11,16 +11,26 @@ function renderQuestion() {
   progress.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
   card.innerHTML = `<h3>${questions[currentQuestion]}</h3><div class="answer-options"><button type="button" data-answer="yes">Sí / a veces</button><button type="button" data-answer="no">No / no estoy segura</button></div>`;
   card.querySelectorAll('[data-answer]').forEach((button) => button.addEventListener('click', () => {
-    if (button.dataset.answer === 'yes') answeredAffirmatively = true;
-    currentQuestion += 1;
-    renderQuestion();
+    const answer = button.dataset.answer;
+    if (answer === 'yes') answeredAffirmatively = true;
+    renderResponseBridge(answer);
   }));
+}
+
+function renderResponseBridge(answer) {
+  const isAffirmative = answer === 'yes';
+  card.innerHTML = `<div class="response-bridge" role="status"><span aria-hidden="true">${isAffirmative ? '✦' : '⌁'}</span><h3>${isAffirmative ? 'Gracias por nombrarlo.' : 'Gracias por tomarte un momento.'}</h3><p>${isAffirmative ? 'Si esta situación te incomoda, te asusta o limita tu libertad, merece atención. No necesitas esperar a que aumente ni demostrar que es “suficientemente grave” para buscar orientación.' : 'Una respuesta negativa no puede confirmar que todo esté bien. Si algo de una relación te preocupa o no te hace sentir libre, puedes pedir apoyo de todos modos.'}</p><p class="bridge-note">Estas preguntas no calculan un nivel de riesgo ni sustituyen a profesionales o servicios de emergencia.</p><div class="bridge-actions"><button class="button primary" type="button" data-continue>Continuar</button><button class="button secondary" type="button" data-bridge-support>Ver recursos de apoyo</button></div></div>`;
+  card.querySelector('[data-continue]').addEventListener('click', () => { currentQuestion += 1; renderQuestion(); });
+  card.querySelector('[data-bridge-support]').addEventListener('click', () => {
+    showSupport('orientation');
+    document.querySelector('#apoyo').scrollIntoView({ behavior: 'smooth' });
+  });
 }
 
 function renderClosing() {
   count.textContent = 'Cuestionario terminado';
   progress.style.width = '100%';
-  card.innerHTML = `<div class="closing"><span aria-hidden="true">✦</span><h3>Gracias por darte este momento.</h3><div class="support-meter" aria-label="Ilustración de orientación hacia recursos de apoyo"><div class="meter-arc"><span class="meter-band reflect"></span><span class="meter-band concern"></span><span class="meter-band urgent"></span><span class="meter-needle" aria-hidden="true"></span><span class="meter-hub" aria-hidden="true"></span></div><div class="meter-labels" aria-hidden="true"><span>Reflexiona</span><span>Busca apoyo</span><span>Emergencia</span></div></div><p class="meter-disclaimer">Esta ilustración no calcula una probabilidad, no diagnostica y no clasifica tu situación. Los colores solo organizan las rutas de información y apoyo.</p><p>${answeredAffirmatively ? 'Lo que sentiste o identificaste merece atención y apoyo. No tienes que decidir nada ahora: puedes hablar con alguien de confianza o elegir un recurso cuando te resulte seguro.' : 'No existe una respuesta que descarte por completo una situación difícil. Puedes volver a estos recursos cuando lo necesites o compartirlos con alguien.'}</p><div class="help-choices" aria-label="Elige qué quieres consultar"><button class="button secondary" type="button" data-help-choice="orientation">Quiero orientación</button><button class="button urgent-button" type="button" data-help-choice="urgent">Me preocupa mi seguridad ahora</button></div></div>`;
+  card.innerHTML = `<div class="closing"><span aria-hidden="true">✦</span><h3>Gracias por darte este momento.</h3><div class="support-meter" aria-label="Ilustración de orientación hacia recursos de apoyo"><div class="meter-arc"><span class="meter-band reflect"></span><span class="meter-band concern"></span><span class="meter-band urgent"></span><span class="meter-needle" aria-hidden="true"></span><span class="meter-hub" aria-hidden="true"></span></div><div class="meter-labels" aria-hidden="true"><span>Reflexiona</span><span>Busca apoyo</span><span>Emergencia</span></div></div><p class="meter-disclaimer">Esta ilustración no mide una “velocidad de riesgo”, no diagnostica y no clasifica tu situación. Los colores solo organizan rutas de información y apoyo.</p><p>${answeredAffirmatively ? 'Lo que sentiste o identificaste merece atención y apoyo. No tienes que decidir nada ahora: puedes hablar con alguien de confianza o elegir un recurso cuando te resulte seguro.' : 'No existe una respuesta que descarte por completo una situación difícil. Si no estás conforme con una relación interpersonal, puedes buscar orientación o compartir estos recursos con alguien.'}</p><div class="help-choices" aria-label="Elige qué quieres consultar"><button class="button secondary" type="button" data-help-choice="orientation">Quiero orientación</button><button class="button urgent-button" type="button" data-help-choice="urgent">Me preocupa mi seguridad ahora</button></div></div>`;
   card.querySelectorAll('[data-help-choice]').forEach((button) => button.addEventListener('click', () => {
     showSupport(button.dataset.helpChoice);
     document.querySelector('#apoyo').scrollIntoView({ behavior: 'smooth' });
