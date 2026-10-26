@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Violencímetro: espacio educativo y privado para reconocer señales de violencia y consultar apoyo." />
+    <title>Violencímetro — Escuadrón Morado</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Violencímetro, inicio">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>Violencímetro <small>Escuadrón Morado</small></span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#cuestionario">Cuestionario</a>
+        <a href="#aprende">Aprende</a>
+        <a href="#apoyo">Apoyo</a>
+        <a href="#fuentes">Fuentes</a>
+      </nav>
+      <button class="quiet-exit" type="button" data-quick-exit>Salir rápido <span aria-hidden="true">↗</span></button>
+    </header>
+
+    <main id="contenido">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Patrones Hermosos · Equipo 31 · reconstrucción 2026</p>
+          <h1 id="hero-title">Reconocer también es cuidarse.</h1>
+          <p class="lead">Un espacio educativo para pensar en el trato que mereces, identificar señales de control o violencia y conocer recursos de apoyo.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#cuestionario">Explorar con calma</a>
+            <a class="button text" href="#apoyo">Ver recursos de apoyo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <aside class="privacy-card" aria-label="Privacidad">
+          <span class="card-icon" aria-hidden="true">⌁</span>
+          <h2>Lo que compartes se queda contigo</h2>
+          <p>Las respuestas se procesan solo en este navegador. No pedimos tu nombre, ubicación ni contacto; tampoco guardamos ni enviamos respuestas.</p>
+        </aside>
+      </section>
+
+      <section class="urgent" aria-labelledby="urgent-title">
+        <div><p class="eyebrow">Si hay peligro inmediato</p><h2 id="urgent-title">Tu seguridad es lo primero.</h2></div>
+        <p>En México llama al <strong>911</strong>. Para orientación por violencia de género, <strong>079, opción 1</strong>. En Guatemala, la línea para mujeres víctimas de violencia es <strong>1572</strong>.</p>
+        <a href="#apoyo">Más recursos</a>
+      </section>
+
+      <section class="questionnaire section" id="cuestionario" aria-labelledby="questionnaire-title">
+        <div class="section-heading"><p class="eyebrow">Herramienta educativa</p><h2 id="questionnaire-title">Hazte algunas preguntas</h2><p>No es un diagnóstico ni mide el riesgo. Puedes omitir una pregunta, detenerte cuando quieras o ir directamente a los recursos.</p></div>
+        <div class="question-shell">
+          <div class="question-meta"><span id="question-count">Pregunta 1 de 6</span><div class="progress" aria-hidden="true"><span id="progress-bar"></span></div></div>
+          <div id="question-card" aria-live="polite"></div>
+          <div class="question-actions"><button class="button secondary" id="skip-question" type="button">Prefiero omitir</button><button class="button text" id="end-questionnaire" type="button">Terminar y ver apoyo</button></div>
+        </div>
+      </section>
+
+      <section class="section learn" id="aprende" aria-labelledby="learn-title">
+        <div class="section-heading"><p class="eyebrow">Para nombrar lo que pasa</p><h2 id="learn-title">Las señales pueden verse de muchas formas</h2><p>Las experiencias no son iguales ni siguen una secuencia. Estas categorías sirven para conversar y buscar información, no para etiquetar una vivencia.</p></div>
+        <div class="topic-grid">
+          <article><span aria-hidden="true">◌</span><h3>Control y aislamiento</h3><p>Revisar, vigilar, decidir con quién puedes hablar o dificultar tus redes de apoyo puede ser una señal para tomar en serio.</p></article>
+          <article><span aria-hidden="true">⌁</span><h3>Intimidación y coerción</h3><p>Las amenazas, presiones o el miedo no son formas sanas de llegar a acuerdos.</p></article>
+          <article><span aria-hidden="true">✧</span><h3>Violencia digital</h3><p>Compartir contenido íntimo sin consentimiento, controlar contraseñas o vigilar cuentas también puede causar daño.</p></article>
+          <article><span aria-hidden="true">⊹</span><h3>Consentimiento</h3><p>Un acuerdo debe ser libre, claro y reversible. Nadie te debe presionar para aceptarlo.</p></article>
+        </div>
+      </section>
+
+      <section class="section evidence" aria-labelledby="evidence-title">
+        <div class="section-heading"><p class="eyebrow">Contexto con fecha</p><h2 id="evidence-title">Datos que necesitan contexto</h2><p>Las estadísticas describen periodos y métodos específicos; no predicen lo que le ocurrirá a una persona.</p></div>
+        <div class="stat-grid">
+          <article><p class="stat-label">México · histórico</p><p class="stat-value">2021</p><h3>ENDIREH</h3><p>Encuesta nacional sobre las experiencias de violencia de mujeres de 15 años y más, levantada entre octubre y noviembre de 2021.</p><a href="https://www.inegi.org.mx/programas/endireh/2021/" target="_blank" rel="noreferrer">Consultar metodología en INEGI ↗</a></article>
+          <article><p class="stat-label">Guatemala · histórico</p><p class="stat-value">48.8%</p><h3>ENCABIH 2023</h3><p>Porcentaje de mujeres que reportó al menos un incidente de violencia a lo largo de su vida, según los resultados publicados por INE Guatemala.</p><a href="https://www.ine.gob.gt/2024/03/" target="_blank" rel="noreferrer">Consultar resultados en INE Guatemala ↗</a></article>
+        </div>
+      </section>
+
+      <section class="support section" id="apoyo" aria-labelledby="support-title">
+        <div class="section-heading"><p class="eyebrow">Acompañamiento</p><h2 id="support-title">No tienes que resolverlo sola</h2><p>Estos recursos fueron verificados el 26 de octubre de 2026. Si es seguro para ti, puedes contactarles. Ante peligro inmediato, llama a emergencias.</p></div>
+        <div class="support-grid">
+          <article class="support-feature"><p class="tag">México · vigente</p><h3>Emergencias</h3><p class="phone">911</p><p>Número único de emergencias. Úsalo cuando hay riesgo inmediato.</p><a href="https://www.gob.mx/911/articulos/que-es-el-911emergencias?idiom=es" target="_blank" rel="noreferrer">Fuente oficial ↗</a></article>
+          <article><p class="tag">México · vigente</p><h3>Línea de las Mujeres</h3><p class="phone">079 <span>opción 1</span></p><p>Orientación y auxilio de primer contacto, gratuita y confidencial, las 24 horas.</p><a href="https://www.gob.mx/mujeres/prensa/si-vives-violencia-de-genero-no-estas-sola-llama-a-la-linea-de-las-mujeres-079-opcion-1-y-recibe-acompanamiento-integral?idiom=es" target="_blank" rel="noreferrer">Fuente oficial ↗</a></article>
+          <article><p class="tag">Guatemala · vigente</p><h3>Atención a mujeres</h3><p class="phone">1572</p><p>Línea exclusiva del Ministerio Público para atención de mujeres víctimas de violencia.</p><a href="https://www.mp.gob.gt/contactanos/" target="_blank" rel="noreferrer">Fuente oficial ↗</a></article>
+        </div>
+        <p class="safety-note"><strong>Salida rápida:</strong> el botón superior abre otra página, pero no borra el historial del navegador. Si alguien puede revisar tu dispositivo, considera usar un equipo o red de confianza cuando sea posible.</p>
+      </section>
+
+      <section class="section sources" id="fuentes" aria-labelledby="sources-title">
+        <div class="section-heading"><p class="eyebrow">Trazabilidad</p><h2 id="sources-title">Qué publicamos y de dónde viene</h2><p>Solo se muestran afirmaciones con fuente y estado de revisión. Los contenidos educativos se revisan por separado de los servicios de apoyo.</p></div>
+        <div class="source-list" id="source-list"></div>
+      </section>
+    </main>
+    <footer><p>Violencímetro · Escuadrón Morado · Reconstrucción 2026</p><p>Herramienta educativa. No sustituye atención profesional, médica, legal ni de emergencia.</p></footer>
+    <script src="data.js"></script><script src="app.js"></script>
+  </body>
+</html>
