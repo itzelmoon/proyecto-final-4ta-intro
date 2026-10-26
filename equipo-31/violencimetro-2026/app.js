@@ -20,7 +20,24 @@ function renderQuestion() {
 function renderClosing() {
   count.textContent = 'Cuestionario terminado';
   progress.style.width = '100%';
-  card.innerHTML = `<div class="closing"><span aria-hidden="true">✦</span><h3>Gracias por darte este momento.</h3><p>${answeredAffirmatively ? 'Lo que sentiste o identificaste merece atención y apoyo. No tienes que decidir nada ahora: puedes hablar con alguien de confianza o revisar los recursos cuando te resulte seguro.' : 'No existe una respuesta que descarte por completo una situación difícil. Puedes volver a estos recursos cuando lo necesites o compartirlos con alguien.'}</p><a class="button primary" href="#apoyo">Ver recursos de apoyo</a></div>`;
+  card.innerHTML = `<div class="closing"><span aria-hidden="true">✦</span><h3>Gracias por darte este momento.</h3><div class="support-meter" aria-label="Ilustración de orientación hacia recursos de apoyo"><div class="meter-arc"><span class="meter-band reflect"></span><span class="meter-band concern"></span><span class="meter-band urgent"></span><span class="meter-needle" aria-hidden="true"></span><span class="meter-hub" aria-hidden="true"></span></div><div class="meter-labels" aria-hidden="true"><span>Reflexiona</span><span>Busca apoyo</span><span>Emergencia</span></div></div><p class="meter-disclaimer">Esta ilustración no calcula una probabilidad, no diagnostica y no clasifica tu situación. Los colores solo organizan las rutas de información y apoyo.</p><p>${answeredAffirmatively ? 'Lo que sentiste o identificaste merece atención y apoyo. No tienes que decidir nada ahora: puedes hablar con alguien de confianza o elegir un recurso cuando te resulte seguro.' : 'No existe una respuesta que descarte por completo una situación difícil. Puedes volver a estos recursos cuando lo necesites o compartirlos con alguien.'}</p><div class="help-choices" aria-label="Elige qué quieres consultar"><button class="button secondary" type="button" data-help-choice="orientation">Quiero orientación</button><button class="button urgent-button" type="button" data-help-choice="urgent">Me preocupa mi seguridad ahora</button></div></div>`;
+  card.querySelectorAll('[data-help-choice]').forEach((button) => button.addEventListener('click', () => {
+    showSupport(button.dataset.helpChoice);
+    document.querySelector('#apoyo').scrollIntoView({ behavior: 'smooth' });
+  }));
+}
+
+function showSupport(choice) {
+  const message = document.querySelector('#support-message');
+  const cards = document.querySelectorAll('.support-grid article');
+  cards.forEach((item) => item.classList.remove('resource-highlight'));
+  if (choice === 'urgent') {
+    message.innerHTML = '<strong>Si sientes peligro inmediato:</strong> llama a emergencias. En México, 911; en Guatemala, 1572 ofrece atención a mujeres víctimas de violencia. Si puedes hacerlo con seguridad, busca a una persona o lugar de confianza.';
+    document.querySelector('.support-feature').classList.add('resource-highlight');
+  } else {
+    message.innerHTML = '<strong>Orientación:</strong> puedes consultar la Línea de las Mujeres 079, opción 1, en México, o revisar las fuentes institucionales disponibles. Los recursos siempre están disponibles, sin importar las respuestas del cuestionario.';
+    document.querySelectorAll('.support-grid article:not(.support-feature)').forEach((item) => item.classList.add('resource-highlight'));
+  }
 }
 
 document.querySelector('#skip-question').addEventListener('click', () => { currentQuestion += 1; renderQuestion(); });
