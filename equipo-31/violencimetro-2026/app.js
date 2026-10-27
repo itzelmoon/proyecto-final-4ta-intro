@@ -56,4 +56,25 @@ document.querySelector('#end-questionnaire').addEventListener('click', () => { c
 document.querySelector('[data-quick-exit]').addEventListener('click', () => { window.location.replace('https://www.google.com/'); });
 
 document.querySelector('#source-list').innerHTML = sources.map((source) => `<article class="source-item"><div><span class="status ${source.status.toLowerCase().replace(' ', '-')}">${source.status}</span><h3>${source.item}</h3><p>${source.institution} · revisado ${source.reviewed}</p></div><a href="${source.url}" target="_blank" rel="noreferrer">Abrir fuente ↗</a></article>`).join('');
+
+function initMotion() {
+  const targets = document.querySelectorAll('.hero-copy, .hero-visual, .urgent, .section-heading, .test-spotlight, .question-shell, .topic-grid article, .stat-grid article, .support-grid article, .source-item');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    targets.forEach((target) => target.classList.add('motion-visible'));
+    return;
+  }
+  targets.forEach((target) => target.classList.add('motion-reveal'));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('motion-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach((target) => observer.observe(target));
+}
+
+initMotion();
 renderQuestion();
